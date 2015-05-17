@@ -1,0 +1,17 @@
+﻿@{
+    var db = new NewsApplication.Infrastructure.ApplicationDBContext();
+    var listCate = db.Categories.Select(s => s.Name).ToList();
+    var listState = db.States.Select(s => s.Name).ToList();
+}
+
+<ul>
+    <li><a href="/">Home</a></li>
+    @foreach (var s in listCate)
+    {
+        <li><a href="@Url.Action("index", "home", new { cate = s })">@s</a></li>
+    }
+    @foreach (var s in listState)
+    {
+        <li><a href="@Url.Action("index", "home", new { state = s })">@s</a></li>
+    }
+</ul>

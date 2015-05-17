@@ -1,0 +1,27 @@
+﻿@model NewsApplication.Models.Entity.Article
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div class="item">
+        <div class="item-thumbnail">
+            <img src="/content/upload/@Model.Thumbnail" />
+        </div>
+        <div class="item-body">
+            <div class="item-date">
+                <span class="item-month">@Model.CreateAt.ToString("MMM")</span>
+                <strong class="item-day">@Model.CreateAt.Day</strong>
+            </div>
+            <div class="item-title">
+                <a href="@Url.Action("View", new { id = Model.ID })">
+                    <h2>@Model.Title</h2>
+                </a>
+            </div>
+            <div class="item-desciption">
+                <p>
+                    @Model.Content
+                </p>
+            </div>
+        </div>
+        <br />
+    </div>

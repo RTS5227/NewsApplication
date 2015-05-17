@@ -1,0 +1,18 @@
+﻿@model IEnumerable<NewsApplication.Models.Entity.Article>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <div class="widget-item">
+                <div class="widget-item-thumbnail">
+                    <img src="/content/upload/@item.Thumbnail" height="72" width="72" />
+                </div>
+                <div class="widget-item-title">
+                    <a href="#">@item.Title</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </li>
+    }
+</ul>

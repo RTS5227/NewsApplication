@@ -1,0 +1,33 @@
+﻿@model IEnumerable<NewsApplication.Models.Entity.Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="h2-title">The New Stuff</h2>
+
+@foreach (var item in Model)
+{
+    <div class="item">
+        <div class="item-thumbnail">
+            <img src="/content/upload/@item.Thumbnail" />
+        </div>
+        <div class="item-body">
+            <div class="item-date">
+                <span class="item-month">@item.CreateAt.ToString("MMM")</span>
+                <strong class="item-day">@item.CreateAt.Day</strong>
+            </div>
+            <div class="item-title">
+                <a href="@Url.Action("View", new { id = item.ID })">
+                    <h2>@item.Title</h2>
+                </a>
+            </div>
+            <div class="item-desciption">
+                <p>
+                    @item.Description
+                </p>
+            </div>
+        </div>
+        <br />
+    </div>
+}
